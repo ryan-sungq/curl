@@ -50,6 +50,7 @@ sub mentions {
     my @options;
     open(F, "<$f");
     while(<F>) {
+        chomp;
         if(/(.*) +([0-9.]+)/) {
             my ($flag, $version)=($1, $2);
 
@@ -75,6 +76,7 @@ sub versioncheck {
     my ($f, $v)=@_;
     open(F, "<$cmddir/$f.d");
     while(<F>) {
+        chomp;
         if(/^Added: (.*)/) {
             if($1 ne $v) {
                 print STDERR "$f lists $v in doc but $1 in file\n";
