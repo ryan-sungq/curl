@@ -77,7 +77,7 @@ sub versioncheck {
     open(F, "<$cmddir/$f.d");
     while(<F>) {
         chomp;
-        if(/^Added: (.*)/) {
+        if(/^Added: ([0-9.]+)/) {
             if($1 ne $v) {
                 print STDERR "$f lists $v in doc but $1 in file\n";
                 $error++;
